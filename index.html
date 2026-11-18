@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#333e28">
+<title>Isis Paranho Viana · Formatura em Medicina</title>
+<meta name="description" content="Você é meu convidado especial. Toque para abrir o convite.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Isis Paranho Viana · Formatura em Medicina">
+<meta property="og:description" content="Você é meu convidado especial. Toque para abrir o convite.">
+<meta property="og:url" content="https://isisparanho-debug.github.io/formatura/">
+<meta property="og:image" content="https://isisparanho-debug.github.io/formatura/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: convite de formatura romântico e clássico, fiel ao modelo de referência.
+IDEA: envelope lacrado que se abre e revela um convite em forma de ingresso com moldura terracota.
+PICTURE: ilustrações botânicas em aquarela nos cantos, selo de cera lilás, colagem de fotos com listras.
+COLOUR and TYPE: verde-musgo #333e28, creme #f2e7d8, terracota #9b3b08, vinho #330006, lilás no selo; Pinyon Script + Noto Serif.
+LAYOUT: coluna de celular (máx. 480px) centralizada; seções empilhadas com navegação flutuante embaixo.
+*/
+:root{--green:#333e28;--green2:#283120;--cream:#f2e7d8;--paper:#f9f4e9;--rust:#9b3b08;--wine:#330006;--brown:#4a1d14;--line:#dcc3ad;--stripe:#657555;--soft:#7a5a4c}
+*{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;background:var(--green2)}
+body{margin:0;background:var(--green2);color:var(--wine);font:400 16px/1.55 "Noto Serif",Georgia,serif;overflow-x:clip}
+body.locked{overflow:hidden}
+a{color:inherit}
+img{display:block;max-width:none}
+.script{font-family:"Pinyon Script",cursive;font-weight:400;line-height:1.15}
+.caps{text-transform:uppercase;letter-spacing:.22em;font-size:12px}
+.page{max-width:480px;margin:0 auto;background:var(--green);position:relative;overflow:hidden}
+.fl{position:absolute;pointer-events:none;user-select:none;z-index:1}
+
+/* ---------- INTRO / ENVELOPE ---------- */
+#intro{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 80% at 50% 45%,#384228,#2e3824);display:flex;align-items:center;justify-content:center;transition:opacity .9s ease,visibility .9s}
+#intro.gone{opacity:0;visibility:hidden}
+#intro .stage{position:relative;width:min(100%,480px);height:100%;overflow:hidden}
+.envwrap{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:min(86vw,350px);aspect-ratio:3/2;cursor:pointer;z-index:3;perspective:1200px;border:0;background:none;padding:0;font:inherit;color:inherit}
+.envwrap:focus-visible{outline:2px solid #e9d7b8;outline-offset:8px}
+.e-back{position:absolute;inset:0;border-radius:4px;background:#b39878;box-shadow:0 26px 44px -14px rgba(0,0,0,.6)}
+.e-card{position:absolute;left:5%;right:5%;top:6%;height:88%;opacity:0;background:#f3e6d9;border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:6%;gap:4px;transition:transform 1.1s cubic-bezier(.5,0,.2,1) .55s,opacity .3s .35s;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.e-card .script{font-size:clamp(25px,7.4vw,32px);color:var(--wine)}
+.e-card .caps{color:var(--rust);font-size:10px;letter-spacing:.24em}
+.e-pocket{position:absolute;inset:0;width:100%;height:100%;z-index:3;border-radius:4px}
+.e-flap{position:absolute;left:0;top:0;width:100%;height:62%;z-index:5;transform-origin:50% 0;transition:transform .85s cubic-bezier(.6,0,.3,1),z-index 0s .42s,filter .85s;filter:drop-shadow(0 2px 2px rgba(0,0,0,.28))}
+.e-seal{position:absolute;left:50%;top:58%;width:27%;height:auto;transform:translate(-50%,-50%);z-index:6;transition:opacity .35s,transform .45s;filter:drop-shadow(0 3px 3px rgba(40,0,0,.45))}
+.envwrap.open .e-seal{opacity:0;transform:translate(-50%,-50%) scale(.6)}
+.envwrap.open .e-flap{transform:rotateX(180deg);z-index:1;filter:brightness(.82)}
+.envwrap.open .e-card{transform:translateY(-60%);opacity:1}
+.hint{position:absolute;left:0;right:0;top:calc(44% + min(29vw,117px) + 26px);text-align:center;color:#e9dfcc;z-index:3;transition:opacity .4s}
+.hint .script{font-size:22px;line-height:1.2;opacity:.92}
+.hint svg{width:44px;height:30px;display:block;margin:0 auto 4px;transform:translateX(26px)}
+#intro.opening .hint{opacity:0}
+
+/* ---------- HERO ---------- */
+#inicio{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:#f4ecdc;padding:120px 24px}
+#inicio .caps{color:#e6dcc6;font-size:12.5px;letter-spacing:.3em}
+.hname{font-size:clamp(34px,10.6vw,48px);white-space:nowrap;line-height:1.2;margin:14px 0 6px;color:#f7efe0}
+.divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:16px 0}
+.divider::before,.divider::after{content:"";width:54px;height:1px;background:currentColor;opacity:.45}
+.divider img{width:28px}
+.turma{font-size:13px;letter-spacing:.3em}
+.turma b{font-weight:400;font-size:24px;letter-spacing:.12em;margin-left:10px}
+.scrollcue{display:inline-flex;flex-direction:column;align-items:center;gap:10px;margin-top:56px;text-decoration:none;color:#d9cfba;font-size:11px;letter-spacing:.28em}
+.scrollcue i{width:1px;height:40px;background:linear-gradient(#d9cfba,transparent);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- TICKET ---------- */
+#convite{position:relative;padding:20px 0 30px}
+.ticket{position:relative;z-index:2;margin:0 14px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
+.ticket svg.cap{display:block;width:100%;height:58px}
+.ticket svg.cap.bot{transform:scaleY(-1);margin-top:-1px}
+.tbody{background:var(--cream);border-left:9px solid var(--rust);border-right:9px solid var(--rust);margin-top:-1px;padding:6px 20px 18px;text-align:center}
+.tname{font-size:clamp(30px,9.4vw,42px);white-space:nowrap;line-height:1.2;color:var(--wine);margin:0 0 14px}
+.tlab{color:var(--wine);font-size:12px;letter-spacing:.2em;margin:0}
+.tdate{display:flex;justify-content:center;align-items:center;gap:14px;margin:8px 0 0;font-size:24px;font-weight:500;letter-spacing:.08em;color:var(--wine)}
+.tdate span:nth-child(2){width:1px;height:28px;background:var(--rust)}
+.weekday{font-style:italic;margin:2px 0 22px;font-size:16px}
+.venue b{display:block;font-weight:600;letter-spacing:.2em;font-size:19px}
+.venue span{display:block;font-size:clamp(10px,3.05vw,12.5px);white-space:nowrap;letter-spacing:.04em;margin-top:6px;line-height:1.5}
+.rose{width:30px;margin:22px auto 8px}
+.med{display:flex;align-items:center;justify-content:center;gap:14px;margin:26px 0 14px}
+.med svg{width:14px;height:40px;color:var(--rust)}
+.med .script{font-size:44px;color:var(--wine)}
+.tbody p.it{font-style:italic;font-size:15.5px;line-height:1.6;margin:0 0 14px}
+.btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:50px;border-radius:999px;font:400 12.5px "Noto Serif",serif;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .2s,filter .2s}
+.btn svg{width:17px;height:17px;flex:none}
+.btn.dark{background:linear-gradient(#3b0409,#2b0004);color:#f6e9e2;box-shadow:0 8px 16px -8px rgba(51,0,6,.6)}
+.btn.line{background:transparent;border-color:#b79f92;color:var(--wine)}
+.btn.rust{background:var(--rust);color:#fbeee4;box-shadow:0 8px 14px -8px rgba(155,59,8,.7)}
+.btn:active{transform:scale(.98)}
+.btn:focus-visible,.chip:focus-visible,.navp a:focus-visible{outline:2px solid #c98b5c;outline-offset:3px}
+.btns{display:grid;gap:12px;margin:26px 0 0}
+.msg{margin-top:26px}
+.msg p.it:last-child{margin-bottom:0}
+.rsvp{border-top:1px solid #d6c4b2;margin-top:24px;padding-top:20px}
+.rsvp .tlab{letter-spacing:.3em}
+.rsvp .phone{font-size:23px;font-weight:500;letter-spacing:.04em;margin:4px 0 2px}
+.rsvp .until{font-size:13px;letter-spacing:.22em;color:#6b4b40;margin:0 0 10px}
+.wa{display:inline-flex;align-items:center;gap:10px;color:var(--rust);font-style:italic;font-size:17px;text-decoration:none;border-bottom:1px solid var(--rust);padding:6px 0 2px}
+.wa svg{width:18px;height:18px}
+.count{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:46px 22px 30px;color:#f0e7d6;text-align:center;position:relative;z-index:2}
+.count div+div{border-left:1px solid rgba(240,231,214,.25)}
+.count b{display:block;font-weight:400;font-size:34px;line-height:1.1;font-variant-numeric:tabular-nums}
+.count span{font-size:11px;letter-spacing:.24em;opacity:.75}
+
+/* ---------- FOTOS ---------- */
+#fotos{background:var(--cream);position:relative;padding:76px 0 60px;text-align:center}
+.eyebrow{color:var(--rust);font-size:12px;letter-spacing:.26em;margin:0}
+.big{font-size:clamp(44px,12.5vw,56px);color:var(--wine);margin:8px 0 0}
+.collage{position:relative;height:470px;margin-top:34px}
+.stripes{position:absolute;left:0;right:0;top:-6px;height:466px;background:repeating-linear-gradient(90deg,var(--stripe) 0 11px,#f4ecdf 11px 22px)}
+.arch{position:absolute;left:50%;top:10px;width:min(72%,300px);aspect-ratio:1856/2550;transform:translateX(-50%);z-index:2}
+.arch::before{content:"";position:absolute;inset:-8px;border:1px solid #c79b7c;border-radius:999px 999px 0 0;background:var(--cream)}
+.arch .ph{position:absolute;inset:0;border-radius:999px 999px 0 0;overflow:hidden}
+.rect{position:absolute;right:16px;top:285px;width:51%;height:300px;z-index:3;background:#fbf6ee;padding:7px;box-shadow:0 8px 18px -10px rgba(0,0,0,.35)}
+.rect::after{content:"";position:absolute;inset:4px;border:1px solid #c79b7c;pointer-events:none}
+.rect .ph{width:100%;height:100%;overflow:hidden}
+.ph{background:linear-gradient(160deg,#e9dccb,#d8c6b0);display:flex;align-items:center;justify-content:center}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.ph .ph-t{font-style:italic;color:#8a6a58;font-size:14px;padding:10px}
+.quote{display:flex;gap:14px;align-items:flex-start;width:fit-content;max-width:330px;margin:34px auto 0;text-align:left;font-style:italic;font-size:17px;line-height:1.5}
+.quote .v2{display:block;margin-top:18px}
+.quote small{display:block;font-style:normal;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);margin-top:8px}
+.quote svg{width:11px;height:36px;flex:none;color:var(--rust);margin-top:2px}
+
+/* ---------- PRESENTES ---------- */
+#presentes{background:repeating-linear-gradient(90deg,var(--stripe) 0 11px,#f4ecdf 11px 22px);padding:26px 11px}
+.gpanel{background:var(--green);padding:74px 16px 40px;position:relative;text-align:center;color:#efe6d4}
+.gpanel h2{font-size:clamp(40px,11.5vw,50px);margin:0;color:#f6eedf;line-height:1.2;position:relative;z-index:2}
+.gpanel .lead{font-style:italic;font-size:14.5px;line-height:1.65;margin:24px 4px 30px;color:#ddd2bd;position:relative;z-index:2}
+.gifts{display:grid;gap:16px;text-align:left;position:relative;z-index:2}
+.gift{position:relative;background:var(--cream);padding:24px 18px 20px;color:var(--wine)}
+.gift::before{content:"";position:absolute;inset:7px 14px;border-top:1px solid #c89a7b;border-bottom:1px solid #c89a7b;pointer-events:none}
+.gift::after{content:"";position:absolute;inset:14px 7px;border-left:1px solid #d5b59c;border-right:1px solid #d5b59c;pointer-events:none}
+.ghead{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:start}
+.gico{width:40px;height:40px;border-radius:50%;border:1px solid #d9b9a0;background:#f8efe4;display:grid;place-items:center;color:var(--rust)}
+.gico svg{width:20px;height:20px}
+.gift h3{margin:6px 0 0;font-weight:500;font-size:clamp(13px,3.9vw,18px);font-weight:600;line-height:1.3;color:#3a0d0a;white-space:nowrap}
+.gift p{margin:4px 0 0;font-style:italic;font-size:13px;line-height:1.45;color:#6b4a3f}
+.gfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #dccab8;margin-top:16px;padding-top:14px;position:relative;z-index:2}
+.price{font-size:23px;color:#3a0d0a;white-space:nowrap}
+.price small{font-size:11px;letter-spacing:.12em;margin-right:6px;vertical-align:2px}
+.price.free{font-style:italic;font-size:18px}
+.gfoot .btn{width:auto;min-height:44px;padding:0 22px;font-size:12px}
+.gift.pres{background:linear-gradient(160deg,#4a0a12,#2e0308);color:#f6e9e2}
+.gift.pres::before{border-color:rgba(232,190,160,.45)}.gift.pres::after{border-color:rgba(232,190,160,.3)}
+.gift.pres h3{color:#fbeee4;font-family:"Pinyon Script",cursive;font-weight:400;font-size:34px;line-height:1.1}
+.gift.pres p{color:#e8d3c6}.gift.pres .gico{background:rgba(255,255,255,.06);border-color:rgba(232,190,160,.5);color:#f1c9b2}
+.gift.pres .gfoot{border-color:rgba(232,190,160,.3)}.gift.pres .price{color:#f1c9b2}
+.btn.cream{background:#f2e7d8;color:#3a0d0a;box-shadow:0 8px 14px -8px rgba(0,0,0,.6)}
+.gift.pres .ribbon{position:absolute;top:-1px;right:18px;background:#9b3b08;color:#fbeee4;font-size:10px;letter-spacing:.22em;padding:6px 10px 7px;z-index:3}
+.physical{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;border:1px dashed rgba(239,230,212,.45);padding:22px 20px;margin-top:16px;text-align:left}
+.physical .gico{background:transparent;border-color:rgba(239,230,212,.45);color:#efe6d4}
+.physical h3{margin:0;font-weight:400;font-size:19px;line-height:1.3;color:#f3ead8}
+.physical p{margin:2px 0 0;font-style:italic;font-size:15.5px;color:#cfc4ae;line-height:1.45}
+
+/* ---------- DICAS ---------- */
+#dicas{background:var(--cream);position:relative;padding:118px 16px 64px;text-align:center}
+#dicas .lead{font-style:italic;font-size:16.5px;line-height:1.6;margin:16px 6px 26px;color:var(--wine)}
+.note{display:flex;gap:14px;align-items:flex-start;text-align:left;background:#f9f3eb;border:1px solid #e3cbb5;border-radius:16px;padding:18px 20px;margin-bottom:14px;font-size:16px;line-height:1.55}
+.note svg{width:22px;height:22px;color:var(--rust);flex:none;margin-top:2px}
+.note b{color:var(--rust);font-weight:600}
+.ghd{display:flex;align-items:center;gap:12px;color:var(--rust);font-size:13px;letter-spacing:.28em;text-transform:uppercase;margin:36px 0 18px;padding-bottom:14px;border-bottom:1px solid #d7bfa8}
+.ghd svg{width:22px;height:22px}
+.places{display:grid;gap:14px;text-align:left}
+.place{background:var(--paper);border:1px solid #ead9c6;border-radius:16px;padding:20px 18px 18px}
+.place h3{margin:0;font-weight:400;font-size:20px;color:#3a0d0a;line-height:1.3}
+.place p{margin:2px 0 14px;font-style:italic;color:#5d3a30;font-size:16px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px}
+.pbtns .btn{width:auto;min-height:44px;padding:0 15px;gap:9px;font-size:11px;letter-spacing:.13em}
+
+/* ---------- FOOTER ---------- */
+footer{position:relative;background:var(--green2);text-align:center;color:#e9dfcc;padding:80px 20px 150px}
+footer .seal{width:92px;margin:0 auto 18px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+footer .script{font-size:38px;color:#efe5d2}
+footer p{margin:6px 0 0;font-style:italic;color:#cfc5b0}
+footer .caps{display:block;margin-top:18px;font-size:11px;letter-spacing:.3em;color:#9da08b}
+
+/* ---------- NAV ---------- */
+.navp{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:50;display:flex;gap:2px;padding:5px;background:rgba(242,231,216,.94);border:1px solid #d6b89e;border-radius:999px;box-shadow:0 10px 24px -10px rgba(0,0,0,.45);backdrop-filter:blur(8px);transition:opacity .5s,transform .5s}
+.navp.hide{opacity:0;transform:translate(-50%,20px);pointer-events:none}
+.navp a{display:flex;align-items:center;min-height:42px;padding:0 13px;border-radius:999px;font-size:11.5px;letter-spacing:.16em;text-decoration:none;color:var(--wine);text-transform:uppercase;transition:background .3s}
+.navp a.on{background:#e3d0bb}
+.navp a.cta{background:var(--wine);color:#f6e9e2}
+@media(max-width:360px){.navp a{padding:0 9px;font-size:10.5px;letter-spacing:.12em}}
+
+/* ---------- MODAL PIX ---------- */
+.ov{position:fixed;inset:0;z-index:120;background:rgba(25,30,18,.6);backdrop-filter:blur(3px);display:none;align-items:flex-end;justify-content:center}
+.ov.show{display:flex}
+.sheet{width:min(480px,100%);max-height:92svh;overflow:auto;background:var(--cream);border-radius:22px 22px 0 0;padding:30px 22px 26px;position:relative;animation:up .35s ease both;text-align:center}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.x{position:absolute;right:10px;top:10px;width:44px;height:44px;border:0;background:none;font:300 30px/1 "Noto Serif",serif;color:#7a5a4c;cursor:pointer}
+.sheet h3{margin:6px 0 0;font-weight:500;font-size:22px;color:#3a0d0a;padding:0 30px}
+.sheet .amt{font-size:34px;color:var(--rust);margin:14px 0 2px}
+.sheet .amt small{font-size:14px}
+.sheet .per{font-size:13px;color:#7a5a4c;font-style:italic;margin:0}
+.chips{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin:16px 0 4px}
+.chip{min-height:38px;min-width:44px;padding:0 10px;border-radius:999px;border:1px solid #cdb39f;background:transparent;color:var(--wine);font:400 13px "Noto Serif",serif;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--wine);border-color:var(--wine);color:#f6e9e2}
+.kv{margin:18px 0;border-top:1px solid #dccab8;text-align:left}
+.kv div{display:flex;justify-content:space-between;gap:14px;padding:12px 2px;border-bottom:1px solid #dccab8}
+.kv dt{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7a5a4c}
+.kv dd{margin:0;font-weight:500;text-align:right;overflow-wrap:anywhere}
+.steps{text-align:left;margin:18px 0 0;padding-left:20px;font-size:15.5px;line-height:1.6}
+.ok{display:block;min-height:22px;margin-top:8px;font-size:13px;color:var(--rust);font-style:italic}
+.cc{margin-top:18px;text-align:left;display:none}
+.cc.show{display:block}
+.cc textarea{width:100%;height:84px;border:1px solid #cdb39f;border-radius:10px;background:#fbf6ee;font:13px/1.4 ui-monospace,monospace;padding:10px;color:var(--wine);resize:none}
+
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;filter:blur(6px);transform:translateY(16px);transition:opacity 1s ease,filter 1s ease,transform 1s ease}
+.rv.in{opacity:1;filter:none;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;filter:none;transform:none;transition:none}*{animation:none!important}.e-card,.e-flap,.e-seal{transition:none!important}}
+</style>
+</head>
+<body class="locked">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="wx" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#d0605a"/><stop offset=".55" stop-color="#b13f3a"/><stop offset="1" stop-color="#7f2522"/></radialGradient>
+    <radialGradient id="wx2" cx="60%" cy="65%" r="65%"><stop offset="0" stop-color="#a8352f"/><stop offset="1" stop-color="#c24f49"/></radialGradient>
+    <symbol id="seal" viewBox="0 0 120 120">
+      <path d="M60 6c8 0 13 3 20 6s14 8 18 15 9 14 9 23c0 10-2 16-5 24s-9 15-17 20-14 8-25 8c-9 0-16-3-23-7S24 86 19 78 12 66 12 57s3-17 8-24 10-15 18-19S51 6 60 6Z" fill="url(#wx)"/>
+      <circle cx="60" cy="60" r="40" fill="none" stroke="#e17f78" stroke-width="2.4" opacity=".55"/>
+      <circle cx="60" cy="60" r="36.5" fill="url(#wx2)"/>
+      <circle cx="60" cy="60" r="36.5" fill="none" stroke="#6e1d1a" stroke-width="1.2" opacity=".55"/>
+      <g fill="none" stroke-linecap="round" transform="translate(1.1 1.1)" stroke="#6a1b18" opacity=".6">
+        <path d="M60 31v60" stroke-width="2.6"/><path d="M60 40c9 1 9 7 0 8s-9 7 0 8 9 7 0 8-9 7 0 8 7 6 0 7" stroke-width="2.4"/><path d="M60 40c-3-3 1-7 5-5" stroke-width="2"/>
+      </g>
+      <g fill="none" stroke-linecap="round" stroke="#e98a83">
+        <path d="M60 31v60" stroke-width="2.6"/><path d="M60 40c9 1 9 7 0 8s-9 7 0 8 9 7 0 8-9 7 0 8 7 6 0 7" stroke-width="2.4"/><path d="M60 40c-3-3 1-7 5-5" stroke-width="2"/>
+      </g>
+      <circle cx="60" cy="29.5" r="2.6" fill="#e98a83"/>
+      <path d="M30 40c4-9 12-15 21-17" stroke="#f0a59e" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".55"/>
+    </symbol>
+    <symbol id="rod" viewBox="0 0 14 44"><path d="M7 2v40" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M7 8c4 1 4 5 0 6s-4 5 0 6 4 5 0 6-4 5 0 6 3 4 0 5" stroke="currentColor" stroke-width="1.1" fill="none"/><circle cx="7" cy="3" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" fill="none"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.2-4.1A8.5 8.5 0 1 1 8.4 19L4 20Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.6c.3-.6.6-.6.9-.6h.6c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c.6 1.2 1.6 2.1 2.8 2.7l.6-.6c.2-.1.4-.2.6-.1l1.7.8c.2.1.4.3.4.5v.6c0 .4-.2.7-.6.9-.6.3-1.4.4-2.5 0-1.9-.7-3.6-2.3-4.5-4.2-.5-1.1-.5-2.2-.6-2.3Z" fill="currentColor"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 12v8h14v-8M12 8v12M12 8c-1.5-3.5-6-4-6-1.5S10 8 12 8Zm0 0c1.5-3.5 6-4 6-1.5S14 8 12 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-hanger" viewBox="0 0 24 24"><path d="M12 8.5a2 2 0 1 1 2-2c0 1.2-2 1.4-2 3L3 16.5c-.6.5-.3 1.5.5 1.5h17c.8 0 1.1-1 .5-1.5L12 9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24"><path d="M4 20V10l8-6 8 6v10M9 20v-6a3 3 0 0 1 6 0v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sciss" viewBox="0 0 24 24"><circle cx="6.5" cy="17.5" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="17.5" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.6 15.3 18 4M15.4 15.3 6 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- ========== INTRO ========== -->
+<div id="intro" role="dialog" aria-label="Convite lacrado">
+  <div class="stage">
+    <img class="fl" src="img/tl.webp" alt="" style="left:-4px;top:4%;width:30%">
+    <img class="fl" src="img/tr.webp" alt="" style="right:-2px;top:4%;width:41%">
+    <img class="fl" src="img/iris.webp" alt="" style="left:-2px;top:60%;width:15%">
+    <img class="fl" src="img/bl.webp" alt="" style="left:0;bottom:0;width:38%">
+    <img class="fl" src="img/br.webp" alt="" style="right:0;bottom:0;width:24%">
+    <button class="envwrap" id="env" type="button" aria-label="Abrir o convite">
+      <div class="e-back"></div>
+      <div class="e-card"><span class="script">Isis Paranho Viana</span><span class="caps">convida para a sua formatura</span></div>
+      <svg class="e-pocket" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="olv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ddc6aa"/><stop offset=".5" stop-color="#d2b998"/><stop offset="1" stop-color="#c2a888"/></linearGradient>
+          <radialGradient id="shn" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+          <filter id="grain" x="0" y="0" width="1" height="1"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 .9  0 0 0 .07 0"/></filter>
+        </defs>
+        <rect width="300" height="200" rx="4" fill="url(#olv)"/>
+        <rect width="300" height="200" rx="4" fill="url(#shn)"/>
+        <rect width="300" height="200" rx="4" filter="url(#grain)"/>
+        <path d="M0 104C34 106 62 128 78 200" fill="none" stroke="#5f6247" stroke-opacity=".45" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <path d="M300 112C268 118 246 146 236 200" fill="none" stroke="#5f6247" stroke-opacity=".35" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <svg class="e-flap" viewBox="0 0 300 124" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="olf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9c2a6"/><stop offset="1" stop-color="#cbb193"/></linearGradient></defs>
+        <path d="M0 0H300V72C262 98 214 114 160 116C108 118 52 104 0 74Z" fill="url(#olf)"/>
+        <path d="M0 0H300V72C262 98 214 114 160 116C108 118 52 104 0 74Z" filter="url(#grain)"/>
+        <path d="M0 74C52 104 108 118 160 116C214 114 262 98 300 72" fill="none" stroke="#8a7a62" stroke-opacity=".55" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <img class="e-seal" src="img/seal.webp" alt="">
+    </button>
+    <div class="hint" aria-hidden="true">
+      <svg viewBox="0 0 44 30" fill="none" stroke="#e9dfcc" stroke-width="1.2" stroke-linecap="round"><path d="M38 28C30 22 18 18 8 6"/><path d="M8 6l1 7M8 6l7 1"/></svg>
+      <div class="script">clique aqui e receba<br>um convite especial</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+<!-- ========== HERO ========== -->
+<header id="inicio">
+  <img class="fl" src="img/tl.webp" alt="" style="left:-4px;top:3%;width:30%">
+  <img class="fl" src="img/tr.webp" alt="" style="right:-2px;top:3%;width:41%">
+  <img class="fl" src="img/iris.webp" alt="" style="left:-2px;top:60%;width:15%">
+  <img class="fl" src="img/bl.webp" alt="" style="left:0;bottom:0;width:38%">
+  <img class="fl" src="img/br.webp" alt="" style="right:0;bottom:0;width:24%">
+  <div style="position:relative;z-index:2">
+    <p class="caps" style="margin:0">Formatura em Medicina</p>
+    <h1 class="script hname">Isis Paranho Viana</h1>
+    <div class="divider"><img src="img/rose.webp" alt=""></div>
+    <p class="turma" style="margin:0">TURMA<b>2026</b></p>
+    <a class="scrollcue" href="#convite">ABRA O CONVITE<i></i></a>
+  </div>
+</header>
+
+<!-- ========== CONVITE ========== -->
+<section id="convite">
+  <img class="fl" src="img/tl.webp" alt="" style="left:-30px;top:-10px;width:28%;z-index:3">
+  <img class="fl" src="img/lilac.webp" alt="" style="right:-34px;top:34%;width:22%;z-index:1">
+  <img class="fl" src="img/bl.webp" alt="" style="left:-50px;top:62%;width:30%;z-index:1">
+  <div class="ticket rv">
+    <svg class="cap" viewBox="0 0 360 58" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M4.5 60V40A18 18 0 0 0 22.5 22H128C152 22 156 4.5 180 4.5S208 22 232 22H337.5A18 18 0 0 0 355.5 40V60" fill="#f2e7d8" stroke="#9b3b08" stroke-width="9" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <div class="tbody">
+      <h2 class="script tname">Isis Paranho Viana</h2>
+      <p class="tlab">CONVIDA PARA A SUA FORMATURA</p>
+      <div class="tdate"><span>12 . DEZ . 26</span><span></span><span>20H</span></div>
+      <p class="weekday">sábado</p>
+      <div class="venue"><b>SOGI</b><span>RUA BENJAMIN CONSTANT, 917 · IJUÍ · RS</span></div>
+      <div class="btns">
+        <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=Sociedade%20Gin%C3%A1stica%20Iju%C3%AD%2C%20Rua%20Benjamin%20Constant%20917%2C%20Iju%C3%AD%20RS" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Ver no Google Maps</a>
+        <a class="btn line" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Formatura%20da%20Isis%20%C2%B7%20Medicina&dates=20261212T230000Z/20261213T050000Z&details=Formatura%20em%20Medicina%20%C2%B7%20Turma%202026&location=SOGI%20%E2%80%93%20Rua%20Benjamin%20Constant%2C%20917%2C%20Iju%C3%AD%20RS" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Salvar na agenda</a>
+      </div>
+      <div class="msg">
+      <p class="it">Depois de anos de estudo, plantões e muita dedicação, chegou o momento de celebrar o início de um novo capítulo.</p>
+      <p class="it">Será uma alegria imensa ter você ao meu lado nesta noite tão especial.</p>
+      </div>
+      <div class="rsvp">
+        <p class="phone" id="phone"></p>
+        <p class="until">ATÉ O DIA 30.11</p>
+        <a class="wa" id="wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>confirmar pelo WhatsApp</a>
+      </div>
+    </div>
+    <svg class="cap bot" viewBox="0 0 360 58" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M4.5 60V40A18 18 0 0 0 22.5 22H128C152 22 156 4.5 180 4.5S208 22 232 22H337.5A18 18 0 0 0 355.5 40V60" fill="#f2e7d8" stroke="#9b3b08" stroke-width="9" vector-effect="non-scaling-stroke"/>
+    </svg>
+  </div>
+  <div class="count rv" aria-label="Contagem regressiva">
+    <div><b id="cd">--</b><span>DIAS</span></div><div><b id="ch">--</b><span>HORAS</span></div>
+    <div><b id="cm">--</b><span>MIN</span></div><div><b id="cs">--</b><span>SEG</span></div>
+  </div>
+</section>
+
+<!-- ========== FOTOS ========== -->
+<section id="fotos">
+  <div class="rv">
+    <p class="eyebrow">CAPÍTULO FINAL</p>
+    <h2 class="script big">a nova médica</h2>
+  </div>
+  <div class="collage rv">
+    <div class="stripes"></div>
+    <img class="fl" src="img/lilac_f.webp" alt="" style="right:-6px;top:-38px;width:34%;z-index:4">
+    <div class="arch"><div class="ph" id="ph1"><img src="img/foto1.jpg" alt="Isis com a beca de formatura de Medicina"></div></div>
+    <img class="fl" src="img/br_f.webp" alt="" style="left:-6px;top:300px;width:24%;z-index:4">
+  </div>
+  <div class="quote rv"><svg><use href="#rod"/></svg><span>“Porque dEle, e por Ele, e para Ele são todas as coisas.”<small>Romanos 11:36</small></span></div>
+</section>
+
+<!-- ========== PRESENTES ========== -->
+<section id="presentes">
+  <div class="gpanel">
+    <img class="fl" src="img/calla.webp" alt="" style="right:-14px;top:40px;width:26%">
+    <h2 class="script rv">Quer presentear<br>a nova médica?</h2>
+    <p class="lead rv">Se quiser presentear a formanda, o valor fica a seu critério. O Pix vai direto para a conta dela.</p>
+    <div class="gifts" id="gifts"></div>
+    <div class="physical rv"><div class="gico"><svg><use href="#i-gift"/></svg></div><div><h3>Presentes físicos também são bem-vindos</h3><p>Se preferir, você pode entregar o seu presente no dia da festa.</p></div></div>
+  </div>
+</section>
+
+<!-- ========== DICAS ========== -->
+<section id="dicas">
+  <img class="fl" src="img/lilac2_f.webp" alt="" style="right:-4px;top:0;width:30%">
+  <div class="rv" style="position:relative;z-index:2">
+    <p class="eyebrow">PARA QUEM VEM A IJUÍ</p>
+    <h2 class="script big">dicas com carinho</h2>
+    <p class="lead">Indicações de hospedagem e de salões de beleza para a noite da formatura. Toque para falar direto com cada lugar.</p>
+  </div>
+  <div class="note rv"><svg><use href="#i-hanger"/></svg><div><b>Traje: social.</b></div></div>
+  <div class="note rv"><svg><use href="#i-cal"/></svg><div><b>Reserve com antecedência:</b> no mesmo fim de semana haverá outras festas na cidade, então hotéis e salões podem lotar. São apenas sugestões; fique à vontade para escolher outro lugar.</div></div>
+  <div class="ghd rv"><svg><use href="#i-house"/></svg>Onde ficar</div>
+  <div class="places" id="hoteis"></div>
+  <div class="ghd rv"><svg><use href="#i-sciss"/></svg>Onde se arrumar</div>
+  <div class="places" id="saloes"></div>
+</section>
+
+<footer>
+  <img class="seal" src="img/seal.webp" alt="">
+  <div class="script">Com carinho, Isis</div>
+  <p>Obrigada por fazer parte desta história.</p>
+  <span class="caps">MEDICINA · 2026</span>
+</footer>
+</div>
+
+<nav class="navp hide" id="nav" aria-label="Seções">
+  <a href="#convite" data-s="convite">Convite</a><a href="#fotos" data-s="fotos">Fotos</a><a href="#presentes" data-s="presentes" class="cta">Presentes</a><a href="#dicas" data-s="dicas">Dicas</a>
+</nav>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mT">
+  <div class="sheet">
+    <button class="x" id="x" type="button" aria-label="Fechar">×</button>
+    <p class="eyebrow" style="margin:0">VOCÊ ESCOLHEU</p>
+    <h3 id="mT"></h3>
+    <p class="amt" id="mA"></p>
+    <p class="per" id="mP"></p>
+    <div class="chips" id="chips"></div>
+    <dl class="kv"><div><dt>Para</dt><dd id="mN"></dd></div><div><dt>Chave Pix</dt><dd id="mK"></dd></div></dl>
+    <button class="btn rust" id="cp" type="button">Copiar chave Pix</button>
+    <span class="ok" id="ok"></span>
+    <ol class="steps"><li>Abra o app do seu banco e escolha <b>Pix</b>.</li><li>Selecione <b>pagar com chave</b> e cole a chave copiada.</li><li>Digite o valor e confirme. Obrigada pelo carinho!</li></ol>
+    <div class="cc" id="cc"><p class="eyebrow" style="margin:0 0 8px">OU USE O PIX COPIA E COLA</p><textarea id="ccT" readonly aria-label="Código Pix copia e cola"></textarea><button class="btn line" id="ccB" type="button" style="margin-top:10px">Copiar código</button></div>
+  </div>
+</div>
+
+<script>
+{
+  /* ===== DADOS — edite aqui ===== */
+  const NOME = "Isis Paranho Viana";
+  const PIX_KEY = "isis.paranho@gmail.com";            // chave Pix
+  const PIX_NOME = "ISIS PARANHO VIANA";        // nome do recebedor (sem acento)
+  const PIX_CIDADE = "IJUI";
+  const RSVP_FONE = "(27) 99949-4531";           // ex.: "(55) 99999-9999"
+  const DATA = "2026-12-12T20:00:00-03:00";
+
+  const IC = {
+    kit:'<path d="M4 9h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/><path d="M13 12l-2.5 3.5h3L11 19"/>',
+    caligrafia:'<path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12.5 6.5l5 5"/><path d="M4 22h8"/>',
+    carimbo:'<path d="M9 4h6v5l-1.5 3h-3L9 9z"/><path d="M5 14h14v3H5z"/><path d="M7 20h10"/>',
+    spa:'<path d="M12 21v-8"/><path d="M12 13c-3 0-4.5-2-4.5-4.5S10 4 12 3c2 1 4.5 3 4.5 5.5S15 13 12 13z"/><path d="M12 13c-1.5-1.5-1.5-4 0-6M12 13c1.5-1.5 1.5-4 0-6"/><path d="M8 17c1.5.5 2.8 1.5 4 4 1.2-2.5 2.5-3.5 4-4"/>',
+    sushi:'<ellipse cx="12" cy="9" rx="7" ry="3"/><path d="M5 9v6c0 1.7 3.1 3 7 3s7-1.3 7-3V9"/><ellipse cx="12" cy="9" rx="3" ry="1.2"/>',
+    look:'<path d="M9 3l3 2 3-2 5 3-2 4-2-1v12H8V9L6 10 4 6z"/><path d="M12 5v4"/>',
+    jaleco:'<path d="M8 3l4 4 4-4 4 3v15H4V6z"/><path d="M12 7v14"/><path d="M8 3l-.5 7L12 7l4.5 3L16 3"/><path d="M6 14h3"/>',
+    congresso:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M12 10.5v6M9 13.5h6"/>',
+    coracao:'<path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10C19.5 15.4 12 20 12 20z"/>'
+  };
+  const GIFTS = [
+    {t:"sua presença",d:"O único presente que não dá para dividir com os amigos: cada um precisa trazer o seu. Vale mais que qualquer Pix.",v:0,i:"coracao",pres:true},
+    {t:"Um presente à sua escolha",d:"Você escolhe o valor. Qualquer carinho é muito bem-vindo.",v:0,i:"coracao"}
+  ];
+  const q = s => encodeURIComponent(s);
+  const maps = s => "https://www.google.com/maps/search/?api=1&query=" + q(s);
+  const google = s => "https://www.google.com/search?q=" + q(s);
+  const HOTEIS = [
+    {n:"Hotel Ijuí",a:"Rua David José Martins, 351 · Centro"},
+    {n:"Hotel Vera Cruz",a:"Rua 15 de Novembro, 234 · Centro"},
+    {n:"Hotel Jardim Europa",a:"BR-285, km 457"},
+    {n:"Hotel 44",a:"RS-342, km 119 · Distrito Industrial"}
+  ].map(h=>({...h,b:[{k:"wa",l:"Entrar em contato",u:google(h.n+" Ijuí telefone")},{k:"pin",l:"Mapa",u:maps(h.n+", "+h.a.replace(" · ",", ")+", Ijuí RS")}]}));
+  const SALOES = [
+    {n:"Jessica Schirmer Espaço de Beleza",a:"Ijuí",k:"ext",l:"Ver Facebook",u:"https://www.facebook.com/search/top?q="+q("Jessica Schirmer Espaço de Beleza Ijuí")},
+    {n:"Glória Beilfuss Beauty House",a:"Centro",k:"ext",l:"Ver Facebook",u:"https://www.facebook.com/search/top?q="+q("Glória Beilfuss Beauty House")},
+    {n:"Bellame Beauty Center",a:"Rua das Chácaras, 765",k:"wa",l:"Entrar em contato",u:google("Bellame Beauty Center Ijuí")},
+    {n:"Madamliê Beauty Center",a:"Ijuí",k:"ext",l:"Ver site",u:google("Madamliê Beauty Center Ijuí")},
+    {n:"Ópera Cabelo",a:"Ijuí",k:"ext",l:"Ver Instagram",u:google("Ópera Cabelo Ijuí instagram")}
+  ].map(s=>({n:s.n,a:s.a,b:[{k:s.k,l:s.l,u:s.u},{k:"pin",l:"Mapa",u:maps(s.n+", "+(s.a==="Ijuí"||s.a==="Centro"?"":s.a+", ")+"Ijuí RS")}]}));
+
+  const $ = id => document.getElementById(id);
+  const fmt = v => v.toLocaleString("pt-BR",{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2});
+  const ic = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
+
+  const waLink = "https://wa.me/5527999494531?text=" + encodeURIComponent("Oi, Isis! Confirmo minha presença na sua formatura.");
+  $("gifts").innerHTML = GIFTS.map((g,i)=>`<article class="gift rv${g.pres?" pres":""}">${g.pres?`<span class="ribbon">O MAIS ESPERADO</span>`:""}<div class="ghead"><div class="gico">${ic(g.i)}</div><div><h3>${g.t}</h3><p>${g.d}</p></div></div>
+    <div class="gfoot">${g.pres?`<span class="price free">inestimável</span><a class="btn cream" href="${waLink}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Eu vou!</a>`:`${g.v?`<span class="price"><small>R$</small>${fmt(g.v)}</span>`:`<span class="price free">valor livre</span>`}<button class="btn rust" type="button" data-i="${i}"><svg><use href="#i-gift"/></svg>Presentear</button>`}</div></article>`).join("");
+  const card = p => `<article class="place rv"><h3>${p.n}</h3><p>${p.a}</p><div class="pbtns">${p.b.map((b,j)=>`<a class="btn ${j?"line":"dark"}" href="${b.u}" target="_blank" rel="noopener"><svg><use href="#i-${b.k}"/></svg>${b.l}</a>`).join("")}</div></article>`;
+  $("hoteis").innerHTML = HOTEIS.map(card).join("");
+  $("saloes").innerHTML = SALOES.map(card).join("");
+
+  /* RSVP */
+  const digits = RSVP_FONE.replace(/\D/g,"");
+  $("phone").textContent = RSVP_FONE;
+  if(!RSVP_FONE) $("phone").style.display="none";
+  $("wa").href = "https://wa.me/" + (digits ? "55"+digits.replace(/^55/,"") : "") + "?text=" + q(`Oi, Isis! Confirmo minha presença na sua formatura.`);
+
+  /* Intro */
+  const intro=$("intro"), env=$("env"), nav=$("nav");
+  const openEnv=()=>{
+    if(env.classList.contains("open")) return;
+    env.classList.add("open"); intro.classList.add("opening");
+    setTimeout(()=>{intro.classList.add("gone");document.body.classList.remove("locked");nav.classList.remove("hide");},2300);
+  };
+  env.addEventListener("click",openEnv);
+  intro.addEventListener("click",e=>{if(e.target!==env&&!env.contains(e.target))openEnv();});
+
+  /* Reveal */
+  const els=document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}}),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    els.forEach(el=>io.observe(el));
+  } else els.forEach(el=>el.classList.add("in"));
+
+  /* Nav ativo */
+  const links=[...nav.querySelectorAll("a")];
+  const secs=links.map(a=>$(a.dataset.s));
+  const onScroll=()=>{
+    const y=window.innerHeight*.45; let cur=null;
+    secs.forEach(s=>{const r=s.getBoundingClientRect(); if(r.top<y&&r.bottom>y) cur=s.id;});
+    links.forEach(a=>a.classList.toggle("on",a.dataset.s===cur&&!a.classList.contains("cta")));
+  };
+  addEventListener("scroll",onScroll,{passive:true}); onScroll();
+
+  /* Contagem */
+  const T=new Date(DATA).getTime(), p2=n=>String(n).padStart(2,"0");
+  const tick=()=>{let d=Math.max(0,T-Date.now())/1000;const D=Math.floor(d/86400);d-=D*86400;const H=Math.floor(d/3600);d-=H*3600;const M=Math.floor(d/60),S=Math.floor(d-M*60);
+    $("cd").textContent=p2(D);$("ch").textContent=p2(H);$("cm").textContent=p2(M);$("cs").textContent=p2(S);};
+  tick(); setInterval(tick,1000);
+
+  /* Pix */
+  const crc16=s=>{let c=0xFFFF;for(let i=0;i<s.length;i++){c^=s.charCodeAt(i)<<8;for(let j=0;j<8;j++)c=(c&0x8000)?((c<<1)^0x1021)&0xFFFF:(c<<1)&0xFFFF;}return c.toString(16).toUpperCase().padStart(4,"0");};
+  const f=(id,v)=>id+String(v.length).padStart(2,"0")+v;
+  const brcode=v=>{let s=f("00","01")+f("26",f("00","br.gov.bcb.pix")+f("01",PIX_KEY))+f("52","0000")+f("53","986")+(v?f("54",v.toFixed(2)):"")+f("58","BR")+f("59",PIX_NOME.slice(0,25))+f("60",PIX_CIDADE.slice(0,15))+f("62",f("05","***"))+"6304";return s+crc16(s);};
+  let cur=0,n=1;
+  $("chips").innerHTML=`<span class="per" style="width:100%">dividir entre</span>`+[1,2,3,4,5].map(k=>`<button class="chip" type="button" data-n="${k}">${k===1?"só eu":k+" pessoas"}</button>`).join("");
+  const draw=()=>{
+    const g=GIFTS[cur], v=g.v?g.v/n:0;
+    $("mT").textContent=g.t;
+    $("mA").innerHTML=g.v?`<small>R$ </small>${fmt(Math.round(v*100)/100)}`:"valor livre";
+    $("mP").textContent=g.v?(n>1?`por pessoa · total R$ ${fmt(g.v)}`:"valor do presente"):"você escolhe quanto quer dar";
+    $("chips").style.display=g.v?"flex":"none";
+    $("chips").querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.n===n));
+    $("mN").textContent=NOME; $("mK").textContent=PIX_KEY||"em breve";
+    $("cc").classList.toggle("show",!!PIX_KEY); if(PIX_KEY) $("ccT").value=brcode(Math.round(v*100)/100);
+  };
+  $("chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b){n=+b.dataset.n;draw();}});
+  const ov=$("ov");
+  $("gifts").addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(!b)return;cur=+b.dataset.i;n=1;$("ok").textContent="";draw();ov.classList.add("show");$("x").focus();});
+  const close=()=>ov.classList.remove("show");
+  $("x").addEventListener("click",close); ov.addEventListener("click",e=>{if(e.target===ov)close();});
+  addEventListener("keydown",e=>{if(e.key==="Escape")close();});
+  const copy=async(t,msg)=>{try{await navigator.clipboard.writeText(t);$("ok").textContent=msg;}catch(_){$("ok").textContent="Selecione e copie manualmente.";}};
+  $("cp").addEventListener("click",()=>PIX_KEY?copy(PIX_KEY,"Chave copiada!"):($("ok").textContent="A chave Pix será adicionada em breve."));
+  $("ccB").addEventListener("click",()=>copy($("ccT").value,"Código copiado!"));
+}
+</script>
+</body>
+</html>
