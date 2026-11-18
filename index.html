@@ -10,8 +10,8 @@
 <meta property="og:title" content="Isis Paranho Viana · Formatura em Medicina">
 <meta property="og:description" content="Você é meu convidado especial. Toque para abrir o convite.">
 <meta property="og:url" content="https://isisparanho-debug.github.io/formatura/">
-<meta property="og:image" content="https://isisparanho-debug.github.io/formatura/og2.jpg">
-<meta property="og:image:secure_url" content="https://isisparanho-debug.github.io/formatura/og2.jpg">
+<meta property="og:image" content="https://isisparanho-debug.github.io/formatura/og3.jpg">
+<meta property="og:image:secure_url" content="https://isisparanho-debug.github.io/formatura/og3.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
@@ -135,6 +135,7 @@ img{display:block;max-width:none}
 /* ---------- PRESENTES ---------- */
 #presentes{background:repeating-linear-gradient(90deg,var(--stripe) 0 11px,#f4ecdf 11px 22px);padding:26px 11px}
 .gpanel{background:var(--green);padding:74px 16px 40px;position:relative;text-align:center;color:#efe6d4}
+.gpanel{overflow:hidden}
 .gpanel h2{font-size:clamp(40px,11.5vw,50px);margin:0;color:#f6eedf;line-height:1.2;position:relative;z-index:2}
 .gpanel .lead{font-style:italic;font-size:14.5px;line-height:1.65;margin:24px 4px 30px;color:#ddd2bd;position:relative;z-index:2}
 .gifts{display:grid;gap:16px;text-align:left;position:relative;z-index:2}
@@ -179,8 +180,8 @@ img{display:block;max-width:none}
 .pbtns .btn{width:auto;min-height:44px;padding:0 15px;gap:9px;font-size:11px;letter-spacing:.13em}
 
 /* ---------- FOOTER ---------- */
-footer{position:relative;background:var(--green2);text-align:center;color:#e9dfcc;padding:80px 20px 150px}
-footer .seal{width:92px;margin:0 auto 18px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+footer{position:relative;overflow:hidden;background:var(--green2);text-align:center;color:#e9dfcc;padding:80px 20px 150px}
+footer .seal{position:relative;z-index:2;width:92px;margin:0 auto 18px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
 footer .script{font-size:38px;color:#efe5d2}
 footer p{margin:6px 0 0;font-style:italic;color:#cfc5b0}
 footer .caps{display:block;margin-top:18px;font-size:11px;letter-spacing:.3em;color:#9da08b}
@@ -314,6 +315,7 @@ footer .caps{display:block;margin-top:18px;font-size:11px;letter-spacing:.3em;co
   <img class="fl" src="img/tl.webp" alt="" style="left:-30px;top:-10px;width:28%;z-index:3">
   <img class="fl" src="img/lilac.webp" alt="" style="right:-34px;top:34%;width:22%;z-index:1">
   <img class="fl" src="img/bl.webp" alt="" style="left:-50px;top:62%;width:30%;z-index:1">
+  <img class="fl" src="img/calla.webp" alt="" style="right:-6px;top:-30px;width:18%;z-index:3;transform:rotate(14deg)">
   <div class="ticket rv">
     <svg class="cap" viewBox="0 0 360 58" preserveAspectRatio="none" aria-hidden="true">
       <path d="M4.5 60V40A18 18 0 0 0 22.5 22H128C152 22 156 4.5 180 4.5S208 22 232 22H337.5A18 18 0 0 0 355.5 40V60" fill="#f2e7d8" stroke="#9b3b08" stroke-width="9" vector-effect="non-scaling-stroke"/>
@@ -370,6 +372,7 @@ footer .caps{display:block;margin-top:18px;font-size:11px;letter-spacing:.3em;co
     <h2 class="script rv">Quer presentear<br>a nova médica?</h2>
     <p class="lead rv">Se quiser presentear a formanda, o valor fica a seu critério. O Pix vai direto para a conta dela.</p>
     <div class="gifts" id="gifts"></div>
+    <img class="fl" src="img/bl.webp" alt="" style="left:-16px;bottom:-6px;width:42%;z-index:1">
     <div class="physical rv"><div class="gico"><svg><use href="#i-gift"/></svg></div><div><h3>Presentes físicos também são bem-vindos</h3><p>Se preferir, você pode entregar o seu presente no dia da festa.</p></div></div>
   </div>
 </section>
@@ -388,9 +391,12 @@ footer .caps{display:block;margin-top:18px;font-size:11px;letter-spacing:.3em;co
   <div class="places" id="hoteis"></div>
   <div class="ghd rv"><svg><use href="#i-sciss"/></svg>Onde se arrumar</div>
   <div class="places" id="saloes"></div>
+  <img class="fl" src="img/br.webp" alt="" style="left:-6px;bottom:-10px;width:22%;z-index:0;opacity:.95">
 </section>
 
 <footer>
+  <img class="fl" src="img/tl.webp" alt="" style="left:-4px;top:-6px;width:30%">
+  <img class="fl" src="img/lilac.webp" alt="" style="right:-4px;top:-4px;width:30%">
   <img class="seal" src="img/seal.webp" alt="">
   <div class="script">Com carinho, Isis</div>
   <p>Obrigada por fazer parte desta história.</p>
